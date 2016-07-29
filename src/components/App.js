@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {link} from 'react-router';
+import {Link} from 'react-router';
 import Header from './common/Header';
 class App extends React.Component{
   render(){
