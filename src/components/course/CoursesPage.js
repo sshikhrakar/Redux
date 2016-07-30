@@ -4,10 +4,12 @@ import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
 import {browserHistory} from 'react-router';
+import CourseFilter from './CourseFilter.js';
 class CoursesPage extends React.Component{
   constructor(props, context){
     super(props, context);
     this.redirectToAddCoursePage =this.redirectToAddCoursePage.bind(this);
+    this.filterAuthor =this.filterAuthor.bind(this);
   }
 
   courseRow(course, index){
@@ -17,11 +19,18 @@ class CoursesPage extends React.Component{
   redirectToAddCoursePage(){
     browserHistory.push('/course');
   }
+
+  filterAuthor(e){
+    e.preventDefault();
+    console.log(document.getElementsByClassName('table'))
+  }
   render(){
     const {courses} = this.props;
     return(
       <div>
         <h1>Courses</h1>
+        <CourseFilter authors={this.props.authors}/>
+        <button onClick={this.filterAuthor}>Filter</button>
         <input type="submit" value="Add Course" className="btn btn-primary" onClick={this.redirectToAddCoursePage}/>
         <CourseList courses={courses}/>
         {courses.map((course, index) => {
@@ -38,7 +47,8 @@ class CoursesPage extends React.Component{
 // };
 function mapStateToProps(state, ownProps){
   return{
-    courses: state.courses
+    courses: state.courses,
+    authors: state.authors
   };
 
 }

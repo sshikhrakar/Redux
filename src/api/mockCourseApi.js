@@ -13,10 +13,18 @@ const courses = [
     category: "JavaScript"
   },
   {
+    id: "Random Book",
+    title: "Building Applications in React and Flux",
+    watchHref: "http://www.pluralsight.com/courses/react-flux-building-applications",
+    authorId: "cory-house",
+    length: "5:08",
+    category: "JavaScript"
+  },
+  {
     id: "clean-code",
     title: "Clean Code: Writing Code for Humans",
     watchHref: "http://www.pluralsight.com/courses/writing-clean-code-humans",
-    authorId: "cory-house",
+    authorId: "scott-allen",
     length: "3:10",
     category: "Software Practices"
   },
@@ -24,7 +32,7 @@ const courses = [
     id: "architecture",
     title: "Architecting Applications for the Real World",
     watchHref: "http://www.pluralsight.com/courses/architecting-applications-dotnet",
-    authorId: "cory-house",
+    authorId: "dan-wahlin",
     length: "2:52",
     category: "Software Architecture"
   },
@@ -32,7 +40,7 @@ const courses = [
     id: "career-reboot-for-developer-mind",
     title: "Becoming an Outlier: Reprogramming the Developer Mind",
     watchHref: "http://www.pluralsight.com/courses/career-reboot-for-developer-mind",
-    authorId: "cory-house",
+    authorId: "bruce-wayne",
     length: "2:30",
     category: "Career"
   },
@@ -40,7 +48,39 @@ const courses = [
     id: "web-components-shadow-dom",
     title: "Web Component Fundamentals",
     watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
+    authorId: "clarke-kent",
+    length: "5:10",
+    category: "HTML5"
+  },
+  {
+    id: "Give Justice",
+    title: "Becoming an Outlier: Reprogramming the Developer Mind",
+    watchHref: "http://www.pluralsight.com/courses/career-reboot-for-developer-mind",
+    authorId: "bruce-wayne",
+    length: "2:30",
+    category: "Career"
+  },
+  {
+    id: "web-dom",
+    title: "Web Component Fundamentals",
+    watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
+    authorId: "peter-parker",
+    length: "5:10",
+    category: "HTML5"
+  },
+  {
+    id: "Random Book Again",
+    title: "Building Applications in React and Flux",
+    watchHref: "http://www.pluralsight.com/courses/react-flux-building-applications",
     authorId: "cory-house",
+    length: "5:08",
+    category: "JavaScript"
+  },
+  {
+    id: "Gangsta",
+    title: "Web Component Fundamentals",
+    watchHref: "http://www.pluralsight.com/courses/web-components-shadow-dom",
+    authorId: "carl-johnshon",
     length: "5:10",
     category: "HTML5"
   }
