@@ -12,6 +12,10 @@ class CoursesPage extends React.Component{
     this.filterAuthor =this.filterAuthor.bind(this);
   }
 
+  componentWillMount(){
+    this.props.actions.loadCourses();
+  }
+
   courseRow(course, index){
     return (<div key={index}>{course.title}</div>);
   }
@@ -20,17 +24,16 @@ class CoursesPage extends React.Component{
     browserHistory.push('/course');
   }
 
-  filterAuthor(e){
-    e.preventDefault();
-    console.log(document.getElementsByClassName('table'))
+  filterAuthor(val){
+    console.log(val)
+    this.props.actions.filterCourses('e.target.value');
   }
   render(){
     const {courses} = this.props;
     return(
       <div>
         <h1>Courses</h1>
-        <CourseFilter authors={this.props.authors}/>
-        <button onClick={this.filterAuthor}>Filter</button>
+        <CourseFilter authors={this.props.authors} filterAuthor={this.filterAuthor}/>
         <input type="submit" value="Add Course" className="btn btn-primary" onClick={this.redirectToAddCoursePage}/>
         <CourseList courses={courses}/>
         {courses.map((course, index) => {
