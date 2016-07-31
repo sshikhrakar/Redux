@@ -1,10 +1,20 @@
 import React, {PropTypes} from 'react';
 import CourseFilterList from './CourseFilterList';
 
-const CourseFilter = ({authors, filterAuthor}) => {
+class CourseFilter extends React.Component{
+  constructor(props, context){
+    super(props, context);
+    this.promptFilter = this.promptFilter.bind(this);
+  }
+  promptFilter(e){
+    e.preventDefault();
+    this.props.filterAuthor(this.refs.selectFilter.value);
+  }
+  render(){
+    const authors = this.props.authors;
     return(
-      <form onSubmit={filterAuthor.bind(null,this.refs.filter.value)}>
-        <select className="select-author" name="filter-author" ref="filter">
+      <form onSubmit={this.promptFilter}>
+        <select className="select-author" ref="selectFilter">
           {authors.map((author,i) =>
             <CourseFilterList key={i} author={author}/>
           )}
@@ -12,6 +22,7 @@ const CourseFilter = ({authors, filterAuthor}) => {
         <button type="submit">Filter</button>
       </form>
     );
+  }
 }
 
 export default CourseFilter;

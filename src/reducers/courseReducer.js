@@ -7,9 +7,12 @@ export default function courseReducer(state = initialState.courses, action){
       if (!action.filterVal) {
         return action.courses;
       }
-      var filteredCourses = action.courses.splice(5,7);
-      console.log(filteredCourses)
-      return (filteredCourses);
+      var courses = action.courses;
+      var filterVal = action.filterVal;
+      var filteredCourse =courses.filter(course =>
+        course.authorId === filterVal
+      )
+      return filteredCourse;
 
     case types.CREATE_COURSE_SUCCESS:
       return[

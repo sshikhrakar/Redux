@@ -24,9 +24,8 @@ class CoursesPage extends React.Component{
     browserHistory.push('/course');
   }
 
-  filterAuthor(val){
-    console.log(val)
-    this.props.actions.filterCourses('e.target.value');
+  filterAuthor(author){
+    this.props.actions.filterCourses(author);
   }
   render(){
     const {courses} = this.props;
