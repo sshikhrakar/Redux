@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import CourseFilterList from './CourseFilterList';
+import SelectFilter from './SelectFilter';
 
 class CourseFilter extends React.Component{
   constructor(props, context){
@@ -8,17 +8,17 @@ class CourseFilter extends React.Component{
   }
   promptFilter(e){
     e.preventDefault();
-    this.props.filterAuthor(this.refs.selectFilter.value);
+    console.log(ref);
+    // this.props.filterAuthor(ref);
+  }
+  getRef(ref){
+    const ref = ref;
   }
   render(){
-    const authors = this.props.authors;
+    const options = this.props.options;
     return(
       <form onSubmit={this.promptFilter}>
-        <select className="select-author" ref="selectFilter">
-          {authors.map((author,i) =>
-            <CourseFilterList key={i} author={author}/>
-          )}
-        </select>
+        <SelectFilter options={options} getRef={this.getRef}/>
         <button type="submit">Filter</button>
       </form>
     );

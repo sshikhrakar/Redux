@@ -32,7 +32,7 @@ class CoursesPage extends React.Component{
     return(
       <div>
         <h1>Courses</h1>
-        <CourseFilter authors={this.props.authors} filterAuthor={this.filterAuthor}/>
+        <CourseFilter options={this.props.authors} filterAuthor={this.filterAuthor}/>
         <input type="submit" value="Add Course" className="btn btn-primary" onClick={this.redirectToAddCoursePage}/>
         <CourseList courses={courses}/>
         {courses.map((course, index) => {
