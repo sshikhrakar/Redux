@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 
-const CourseFilterList = ({elem}) => {
+const CourseFilterList = (props) => {
     return(
-      <option value={elem.id}>{elem.id}</option>
+      <option value={props.elem.id} key={props.elem.id}>{props.elem}</option>
     );
 }
 

@@ -14,8 +14,8 @@ const CourseList = ({courses}) => {
         </tr>
       </thead>
       <tbody>
-      {courses.map(course =>
-        <CourseListRow key={course.id} course={course}/>
+      {courses.map((course, index) =>
+        <CourseListRow key={index} course={course}/>
       )}
       </tbody>
     </table>

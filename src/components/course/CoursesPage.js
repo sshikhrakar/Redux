@@ -9,11 +9,11 @@ class CoursesPage extends React.Component{
   constructor(props, context){
     super(props, context);
     this.redirectToAddCoursePage =this.redirectToAddCoursePage.bind(this);
-    this.filterAuthor =this.filterAuthor.bind(this);
+    this.filter =this.filter.bind(this);
   }
 
   componentWillMount(){
-    this.props.actions.loadCourses();
+    this.props.actions.loadCourses({});
   }
 
   courseRow(course, index){
@@ -24,15 +24,15 @@ class CoursesPage extends React.Component{
     browserHistory.push('/course');
   }
 
-  filterAuthor(author){
-    this.props.actions.filterCourses(author);
+  filter(filters){
+    this.props.actions.filterCourses(filters);
   }
   render(){
     const {courses} = this.props;
     return(
       <div>
         <h1>Courses</h1>
-        <CourseFilter options={this.props.authors} filterAuthor={this.filterAuthor}/>
+        <CourseFilter optionAuthor={this.props.authors} optionCourse={this.props.courses} filter={this.filter}/>
         <input type="submit" value="Add Course" className="btn btn-primary" onClick={this.redirectToAddCoursePage}/>
         <CourseList courses={courses}/>
         {courses.map((course, index) => {

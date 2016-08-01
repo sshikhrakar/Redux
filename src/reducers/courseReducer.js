@@ -7,12 +7,26 @@ export default function courseReducer(state = initialState.courses, action){
       if (!action.filterVal) {
         return action.courses;
       }
-      var courses = action.courses;
-      var filterVal = action.filterVal;
-      var filteredCourse =courses.filter(course =>
-        course.authorId === filterVal
-      )
-      return filteredCourse;
+      const courses = action.courses;
+      const filterVal = action.filterVal;
+      if(filterVal.author && filterVal.category){
+        let filteredCourse = courses.filter(course =>
+          course.authorId === filterVal.author || course.category === filterVal.category
+        )
+        return filteredCourse;
+      }
+      else if(filterVal.author){
+        let filteredCourse = courses.filter(course =>
+          course.authorId === filterVal.author
+        )
+        return filteredCourse;
+      }
+      else if(filterVal.category){
+        let filteredCourse = courses.filter(course =>
+          course.category === filterVal.category
+        )
+        return filteredCourse;
+      }
 
     case types.CREATE_COURSE_SUCCESS:
       return[
